@@ -8,7 +8,7 @@ Two examples to illustrate the efficiency of swift-flif (both images were taken 
 
 Description | File size (in bytes) | File size (compared to the original) | File size (compared to the default settings) | Executed FLIF encoder commands | Elapsed time**
 ------------ | ------------- | ------------- | ------------- | ------------- | -------------
-FreedroidRPG.png | 38,390 | 100.00% | 151.96% | 0 | -
+[FreedroidRPG.png](https://raw.githubusercontent.com/matthiaskrgr/flifcrush/master/samples/FreedroidRPG.png) | 38,390 | 100.00% | 151.96% | 0 | -
 optimized.png* | 37,154 | 96.78% | 147.06% | 0 | 00:00:01
 default.flif | 25,264 | 65.81% | 100.00% | 1 | less than a second
 swift-flif.flif | 24,370 | 63.48% | 96.46% | 16 | 00:00:01
@@ -16,7 +16,7 @@ flifcrush.flif | 23,858 | 62.15% | 94.43% | 7921 | 00:11:40
 
 Description | File size (in bytes) | File size (compared to the original) | File size (compared to the default settings) | Executed FLIF encoder commands | Elapsed time**
 ------------ | ------------- | ------------- | ------------- | ------------- | -------------
-screenshot.png | 386,223 | 100.00% | 545.74% | 0 | -
+[screenshot.png](https://raw.githubusercontent.com/matthiaskrgr/flifcrush/master/samples/screenshot.png) | 386,223 | 100.00% | 545.74% | 0 | -
 optimized.png* | 31,191 | 8.08% | 44.07% | 0 | 00:00:22
 default.flif | 70,770 | 18.32% | 100.00% | 1 | 00:00:02
 swift-flif.flif | 64,513 | 16.70% | 91.16% | 16 | 00:00:17
