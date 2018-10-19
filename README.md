@@ -47,19 +47,31 @@ Then open .bashrc and add the script as an alias
 
 ## Usage
 
-`Usage: swift-flif [-h] [-e <extension>] [ input01 [ input02 input03 ... ] ]`
+To convert all files in a directory:
 
-There are 3 ways to select input files:
+`swift-flif [OPTIONS]..."`
 
-Command | Description
+To convert individual files:
+
+`swift-flif [OPTIONS]... INPUT [INPUT]...`
+
+Option | Description
 ------------ | -------------
-`swift-flif` | Converts all files in the current directory to FLIF  
-`swift-flif -e <extension>` | Converts all files of a certain image type in the current directory to FLIF  
-`swift-flif input01 [ input02 input03 ... ]` | Converts all specified files to FLIF  
+`-h, --help` | Show a help text.  
+`-v, --verbose` | Print verbose information about each conversion. This includes all used commands, the resulting file sizes and the file size difference between the original image and the resulting FLIF (both in bytes and percent).   
+`-q, --quiet` | Surpress all non-error messages.
+`-e <extension>` | Use swift-flif only on a specfied type of image. `-e png` only converts PNGs in the current directory and will ignore all other supported image types.
 
 All methods automatically skip files that aren't supported by the FLIF encoder.
 
 List of supported formats (according to 'man flif'):  
 `PNG, PAM, PNM, PPM, PGM, PBM`
 
-Please note that this script doesn't support FLIF transcoding to avoid overwriting files.
+Please note that this script doesn't support FLIF transcoding to avoid overwriting files.  
+It will be added in the near future.
+
+## Goals for the future
+
+- [ ] Add FLIF transcoding support
+- [ ] Add options to force (no) interlacing
+- [ ] Make the script recurse through directories by default
