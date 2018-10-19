@@ -26,8 +26,9 @@ flifcrush.flif | 60,370 | 15.63% | 85.30% | 8681 | 07:07:53
 *I also included the results of the optimized PNGs, because I think it's important to show that FLIF isn't always the best solution. There are still times when it's less efficient.
 
 The optimization was done via [ECT](https://github.com/fhanau/Efficient-Compression-Tool).  
-`ect -9 <input file>`  
-
+````
+ect -9 <input file>
+````
 **All tests were done with a Ryzen 7 2700x @ 3.8 GHz
 
 ## Requirements
@@ -38,23 +39,23 @@ The optimization was done via [ECT](https://github.com/fhanau/Efficient-Compress
 ## Installation
 
 Here's how you make this script an easily available command line tool. First make the script executable via 
-
-`chmod +x swift-flif.sh`
-
+````
+chmod +x swift-flif.sh
+````
 Then open .bashrc and add the script as an alias
-
-`alias swift-flif="path/to/the/script/swift-flif.sh"`
-
+````
+alias swift-flif="path/to/the/script/swift-flif.sh"
+````
 ## Usage
 
 To convert all files in a directory:
-
-`swift-flif [OPTIONS]..."`
-
+````
+swift-flif [OPTIONS]..."
+````
 To convert individual files:
-
-`swift-flif [OPTIONS]... INPUT [INPUT]...`
-
+````
+swift-flif [OPTIONS]... INPUT [INPUT]...
+````
 Option | Description
 ------------ | -------------
 `-h, --help` | Show a help text.  
@@ -65,8 +66,9 @@ Option | Description
 All methods automatically skip files that aren't supported by the FLIF encoder.
 
 List of supported formats (according to 'man flif'):  
-`PNG, PAM, PNM, PPM, PGM, PBM`
-
+````
+PNG, PAM, PNM, PPM, PGM, PBM
+````
 Please note that this script doesn't support FLIF transcoding to avoid overwriting files.  
 It will be added in the near future.
 
