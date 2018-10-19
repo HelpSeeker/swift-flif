@@ -20,7 +20,7 @@ Description | File size (in bytes) | File size (compared to the original) | File
 optimized.png* | 31,191 | 8.08% | 44.07% | 0 | 00:00:22
 default.flif | 70,770 | 18.32% | 100.00% | 1 | 00:00:02
 swift-flif.flif | 64,513 | 16.70% | 91.16% | 16 | 00:00:17
-flifcrush.flif | 60,370 | 15.63% | 85.30% | 8681 | will be added later
+flifcrush.flif | 60,370 | 15.63% | 85.30% | 8681 | 07:07:53
 
 
 *I also included the results of the optimized PNGs, because I think it's important to show that FLIF isn't always the best solution. There are still times when it's less efficient.
