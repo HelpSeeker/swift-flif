@@ -50,7 +50,7 @@ alias swift-flif="path/to/the/script/swift-flif.sh"
 
 To convert all files in a directory:
 ````
-swift-flif [OPTIONS]..."
+swift-flif [OPTIONS]...
 ````
 To convert individual files:
 ````
