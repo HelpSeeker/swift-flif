@@ -33,7 +33,7 @@ usage() {
 	echo -e "Options:"  
 	echo -e " -h, --help\t\tshow this help"
 	echo -e " -v, --verbose\t\tprint verbose information"
-	echo -e " -q, --quiet\t\tsurpress all non-error output"
+	echo -e " -q, --quiet\t\tsuppress all non-error output"
 	echo -e " -I, --interlace\tforce interlaced FLIF"
 	echo -e " -N, --no-interlace\\tforce non-interlaced FLIF\n"
 	echo -e "For more infos visit https://github.com/HelpSeeker/swift-flif"
