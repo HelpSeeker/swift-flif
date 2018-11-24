@@ -1,7 +1,7 @@
 # swift-flif
 swift-flif is a [FLIF](https://flif.info/) optimization script with a focus on speed. It was inspired by [flifcrush](https://github.com/matthiaskrgr/flifcrush).
 
-## Why use swift-flif?
+### Why use swift-flif?
 
 swift-flif's goal is to strike a balance between compression efficiency and speed. It only loops through a few of the most interesting settings instead of thousands of possible combination.  
 Two examples to illustrate the efficiency of swift-flif (both images were taken from flifcrush's sample directory): 
@@ -31,12 +31,12 @@ ect -9 <input file>
 ````
 **All tests were done with a Ryzen 7 2700x @ 3.8 GHz
 
-## Requirements
+### Requirements
 
 * [FLIF](https://github.com/FLIF-hub/FLIF)
 * Bash >=4.0
 
-## Installation
+### Installation
 
 Here's how you make this script an easily available command line tool. First make the script executable via 
 ````
@@ -46,34 +46,51 @@ Then open .bashrc and add the script as an alias
 ````
 alias swift-flif="path/to/the/script/swift-flif.sh"
 ````
-## Usage
-
-To convert all files in a directory:
-````
-swift-flif [OPTIONS]...
-````
-To convert individual files:
+### Usage
 ````
 swift-flif [OPTIONS]... INPUT [INPUT]...
 ````
+
 Option | Description
 ------------ | -------------
 `-h, --help` | Show a help text.  
-`-v, --verbose` | Print verbose information about each conversion. This includes all used commands, the resulting file sizes and the file size difference between the original image and the resulting FLIF (both in bytes and percent).   
-`-q, --quiet` | Surpress all non-error messages.
-`-e <extension>` | Use swift-flif only on a specfied type of image. `-e png` only converts PNGs in the current directory and will ignore all other supported image types.
+`-v, --verbose` | Print verbose information about each conversion.   
+`-q, --quiet` | Suppress all non-error messages.  
+`-I, --interlace` | Force swift-flif to output interlaced FLIF. This will halve the amount of executed FLIF encoder commands.  
+`-N, --no-interlace` | For swift-flif to output non-interlaced FLIF. This will halve the amount of executed FLIF encoder commands.  
 
-All methods automatically skip files that aren't supported by the FLIF encoder.
-
-List of supported formats (according to 'man flif'):  
+List of supported formats:  
 ````
 PNG, PAM, PNM, PPM, PGM, PBM
 ````
-Please note that this script doesn't support FLIF transcoding to avoid overwriting files.  
-It will be added in the near future.
 
-## Goals for the future
+### How swift-flif handles input files
 
-- [ ] Add FLIF transcoding support
-- [ ] Add options to force (no) interlacing
-- [ ] Make the script recurse through directories by default
+swift-flif assumes that images with the same name depict the same footage.  
+
+It differentiates between the source file (e.g. test.png) and the FLIF equivalent (e.g. test.flif).  
+Based on this assumption there are 3 possible situations that swift-flif can encounter.
+
+1. There's one source file present (no FLIF equivalent)
+2. Both source file and FLIF equivalent are present  
+3. There's only a FLIF file present (no source file)
+
+swift-flif will always try to find the FLIF equivalent of a source file and vice versa. It will skip all FLIF files as input, if the source file was specified as input as well or is merely present in the same directory as the source file. At the same time it keeps track of any FLIF equivalents and prevents overwriting, if swift-flif isn't able to lower the file size further.
+
+### FLIF transcoding
+
+You might notice that swift-flif doesn't transcode FLIFs directly. Instead it decodes them to PNG and reencodes them as FLIF. This additional step is necessary as FLIF transcoding seems to be broken (or at least produces really weird results).  
+
+FLIF -> FLIF will produce significantly larger files than FLIF -> PNG -> FLIF.
+
+### Other helpful tools
+
+The FLIF encoder has certain shortcomings when it comes to supported input file formats.  
+Many popular image types aren't supported (e.g. JPG, GIF, BMP, TIFF, ...) and some PNGs might cause trouble as well (see: [libpng warning: iCCP: known incorrect sRGB profile](https://stackoverflow.com/questions/22745076/libpng-warning-iccp-known-incorrect-srgb-profile)).
+
+For these scenarios I'd advise using [ImageMagick](https://www.imagemagick.org/script/index.php) or [GraphicsMagick](http://www.graphicsmagick.org/). They allow you to easily batch convert unsupported image formats or fix problematic PNGs.
+
+### Things I don't plan on including
+
+* Lossy encoding  
+* Usage of ImageMagick/GraphicsMagick to support more image formats
