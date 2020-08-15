@@ -1,3 +1,13 @@
+***
+
+## Archived!
+
+FLIF is dead and so is this project. While both can still be used, there is only little reason to do so.
+
+People who are interested in next gen image compression should follow the progress on the [JPEG XL reference implementation](https://gitlab.com/wg1/jpeg-xl) instead.
+
+***
+
 # swift-flif
 swift-flif is a [FLIF](https://flif.info/) optimization script with a focus on speed. It was inspired by [flifcrush](https://github.com/matthiaskrgr/flifcrush).
 
